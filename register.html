@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Call of Duty: Mobile - Player Registration Portal">
+  <title>Call of Duty: Mobile - Register Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;500;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --cod-dark: #0f1215;
+      --cod-card-bg: rgba(24, 29, 34, 0.85);
+      --cod-gold: #f3a812;
+      --cod-gold-hover: #d99208;
+      --cod-gray: #a0aab2;
+      --cod-border: rgba(243, 168, 18, 0.4);
+      --cod-input-bg: rgba(15, 18, 21, 0.7);
+      --cod-error: #ff4d4d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #e1e6eb;
+      background: linear-gradient(180deg, rgba(15, 18, 21, 0.75) 0%, rgba(15, 18, 21, 0.9) 100%),
+                  url('https://codm.garena.com/static/images/Main-page/P1/main-kv.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 15px; 
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 480px;
+      margin: auto; 
+      background: var(--cod-card-bg);
+      border: 1px solid var(--cod-border);
+      border-radius: 8px;
+      padding: 30px 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(243, 168, 18, 0.15);
+      text-align: center;
+    }
+
+    @supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+      .auth-container {
+        background: rgba(24, 29, 34, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    }
+
+    .brand-header { margin-bottom: 20px; }
+    .brand-logo-svg { width: 46px; height: 46px; display: inline-block; margin-bottom: 4px; }
+    .brand-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.4rem, 5vw, 1.8rem); 
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .brand-subtitle {
+      font-family: 'Teko', sans-serif;
+      color: var(--cod-gold);
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .form-heading {
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 2.2rem);
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--cod-gold);
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+
+    .input-group { margin-bottom: 16px; text-align: left; }
+    .input-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--cod-gray);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .input-field { position: relative; display: flex; align-items: center; }
+    .input-field i.left-icon { position: absolute; left: 12px; color: var(--cod-gold); }
+    .input-field input {
+      width: 100%;
+      padding: 12px 40px 12px 38px; 
+      background: var(--cod-input-bg);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .input-field input:focus {
+      border-color: var(--cod-gold);
+      box-shadow: 0 0 8px rgba(243, 168, 18, 0.4);
+    }
+
+    /* Password Toggle Button Styling */
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--cod-gray);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-password:hover {
+      color: var(--cod-gold);
+    }
+
+    label.error {
+      color: var(--cod-error) !important;
+      font-size: 0.78rem;
+      margin-top: 5px;
+      display: block;
+      text-transform: none !important;
+      line-height: 1.3;
+    }
+
+    input.error { border-color: var(--cod-error) !important; }
+
+    .btn-cod-submit {
+      width: 100%;
+      background-color: var(--cod-gold);
+      color: #000;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: none;
+      padding: 10px 0;
+      cursor: pointer;
+      margin-top: 10px;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+
+    .btn-cod-submit:hover { background-color: var(--cod-gold-hover); }
+
+    .switch-link-text { margin-top: 18px; font-size: 0.88rem; color: var(--cod-gray); }
+    .switch-btn { color: var(--cod-gold); font-weight: 700; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <main class="auth-container">
+    <header class="brand-header">
+      <svg class="brand-logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 2Z" fill="#F3A812"/>
+        <path d="M12 6L15 11H9L12 6Z" fill="#0F1215"/>
+      </svg>
+      <h1 class="brand-title">Call of Duty</h1>
+      <span class="brand-subtitle">Mobile-Garena</span>
+    </header>
+
+    <div class="form-wrapper">
+      <form class="register-form" id="registerForm" action="#" method="POST" novalidate>
+        <h2 class="form-heading">Create Account</h2>
+
+        <div class="input-group">
+          <label for="username">Username</label>
+          <div class="input-field">
+            <i class="bi bi-person-badge-fill left-icon"></i>
+            <input type="text" id="username" name="username" placeholder="Create your username">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <div class="input-field">
+            <i class="bi bi-envelope-fill left-icon"></i>
+            <input type="email" id="email" name="email" placeholder="Enter email address">
+          </div>
+        </div>
+
+        <!-- PASSWORD WITH VISIBILITY TOGGLE -->
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="input-field">
+            <i class="bi bi-lock-fill left-icon"></i>
+            <input type="password" id="password" name="password" placeholder="Create password">
+            <button type="button" class="toggle-password" data-target="#password" aria-label="Toggle password visibility">
+              <i class="bi bi-eye-slash-fill"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CONFIRM PASSWORD WITH VISIBILITY TOGGLE -->
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-field">
+            <i class="bi bi-shield-lock-fill left-icon"></i>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+            <button type="button" class="toggle-password" data-target="#confirmPassword" aria-label="Toggle confirm password visibility">
+              <i class="bi bi-eye-slash-fill"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-cod-submit">Register Now</button>
+
+        <p class="switch-link-text">
+          Already have an account? 
+          <a href="login.html" class="switch-btn">Login</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+
+      // TOGGLE PASSWORD VISIBILITY FUNCTIONALITY
+      $(".toggle-password").on("click", function() {
+        const targetInputSelector = $(this).attr("data-target");
+        const $input = $(targetInputSelector);
+        const $icon = $(this).find("i");
+
+        if ($input.attr("type") === "password") {
+          $input.attr("type", "text");
+          $icon.removeClass("bi-eye-slash-fill").addClass("bi-eye-fill");
+        } else {
+          $input.attr("type", "password");
+          $icon.removeClass("bi-eye-fill").addClass("bi-eye-slash-fill");
+        }
+      });
+
+      // Custom validation for username
+      $.validator.addMethod("usernameOnly", function(value, element) {
+          return this.optional(element) || /^[a-zA-Z0-9_-]+$/.test(value);
+      }, "Username can only contain letters, numbers, underscores, and hyphens.");
+
+      // Custom validation for email
+      $.validator.addMethod("strictEmail", function(value, element) {
+          return this.optional(element) ||
+              /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
+      }, "Please enter a valid email address (e.g., user@example.com).");
+
+      // Custom validation for strong password
+      $.validator.addMethod("strongPassword", function(value, element) {
+          return this.optional(element) ||
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(value);
+      }, "Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.");
+
+      // Form validation
+      $("#registerForm").validate({
+
+          rules: {
+              // USERNAME
+              username: {
+                  required: true,
+                  minlength: 5,
+                  maxlength: 30,
+                  usernameOnly: true
+              },
+
+              // EMAIL
+              email: {
+                  required: true,
+                  strictEmail: true
+              },
+
+              // PASSWORD
+              password: {
+                  required: true,
+                  minlength: 8,
+                  strongPassword: true
+              },
+
+              // CONFIRM PASSWORD
+              confirmPassword: {
+                  required: true,
+                  equalTo: "#password"
+              }
+          },
+
+          messages: {
+              // USERNAME MESSAGES
+              username: {
+                  required: "Username is required. Please enter your username.",
+                  minlength: "Username is too short. It must contain at least 3 characters.",
+                  maxlength: "Username is too long. It must not exceed 30 characters.",
+                  usernameOnly: "Invalid username. Only letters, numbers, underscores (_), and hyphens (-) are allowed."
+              },
+
+              // EMAIL MESSAGES
+              email: {
+                  required: "Email address is required. Please enter your email address.",
+                  strictEmail: "Invalid email address. Please enter a valid email format, such as user@example.com."
+              },
+
+              // PASSWORD MESSAGES
+              password: {
+                  required: "Password is required. Please enter your password.",
+                  minlength: "Password is too short. It must contain at least 8 characters.",
+                  strongPassword: "Weak password. It must contain at least 1 uppercase letter (A-Z), 1 lowercase letter (a-z), 1 number (0-9), and 1 special character (@$!%*?&)."
+              },
+
+              // CONFIRM PASSWORD MESSAGES
+              confirmPassword: {
+                  required: "Please confirm your password.",
+                  equalTo: "Passwords do not match. Please make sure both passwords are exactly the same."
+              }
+          },
+
+          // Validate immediately while typing
+          onkeyup: function(element) {
+              this.element(element);
+          },
+
+          // Validate immediately when leaving a field
+          onfocusout: function(element) {
+              this.element(element);
+          },
+
+          errorPlacement: function(error, element) {
+              error.insertAfter(element.closest('.input-field'));
+          },
+
+          submitHandler: function(form) {
+              const registeredUser = {
+                  username: $("#username").val().trim(),
+                  email: $("#email").val().trim(),
+                  password: $("#password").val()
+              };
+
+              localStorage.setItem('registeredUser', JSON.stringify(registeredUser));
+              alert("Account registered successfully! Redirecting to login page...");
+              window.location.href = "login.html";
+          }
+      });
+    });
+  </script>
+</body>
+</html>

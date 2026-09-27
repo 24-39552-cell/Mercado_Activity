@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Call of Duty: Mobile - Explore characters, weapons, gallery, and game modes.">
+  <title>Call of Duty: Mobile - Official Page</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cod-dark: #0f1215;
+      --cod-card-bg: #181d22;
+      --cod-gold: #f3a812;
+      --cod-gold-hover: #d99208;
+      --cod-gray: #a0aab2;
+      --cod-border: #2a323d;
+    }
+
+    /* Enable smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #e1e6eb;
+      background-color: var(--cod-dark);
+    }
+
+    h1, h2, h3, h4, h5, .nav-link, .btn-cod {
+      font-family: 'Teko', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .brand-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    /* NAVIGATION BAR STYLE */
+    .navbar-sticky {
+      background-color: rgba(15, 18, 21, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--cod-gold);
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
+      z-index: 1030;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0 12px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--cod-gold) !important;
+    }
+
+    .btn-cod {
+      background-color: var(--cod-gold);
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 2px;
+      padding: 6px 22px;
+      border: none;
+      transition: all 0.3s ease;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+
+    .btn-cod:hover {
+      background-color: var(--cod-gold-hover);
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .btn-cod-outline {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid var(--cod-gold);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 2px;
+      padding: 6px 22px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cod-outline:hover {
+      background-color: var(--cod-gold);
+      color: #000;
+    }
+
+    /* Main bg section */
+    .hero-section {
+      position: relative;
+      min-height: 90vh;
+      background: linear-gradient(180deg, rgba(15, 18, 21, 0.4) 0%, rgba(15, 18, 21, 1) 100%),
+                url('https://codm.garena.com/static/images/Main-page/P1/main-kv.jpg') center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    .hero-title {
+      font-size: 2.5rem; 
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    @media (min-width: 992px) {
+      .hero-title {
+        font-size: 4rem; 
+        line-height: 0.9;
+      }
+    }
+
+    .hero-subtitle {
+      color: var(--cod-gold);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    .hero-img {
+      max-width: 100%;
+      height: auto;
+      border: 3px solid var(--cod-border);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Welcome Message */
+    .welcome-banner-top {
+      position: fixed;
+      color:#000;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1050;
+      min-width: 200px;
+      max-width: 70%;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 10px 25px rgba(30, 2, 2, 0.295);
+      transition: opacity 0.5s ease;
+    }
+
+    /* Section size for each boarder page */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background-color: var(--cod-gold);
+    }
+
+    .section-title-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Cards */
+    .card-custom {
+      background-color: var(--cod-card-bg);
+      border: 1px solid var(--cod-border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-8px);
+      border-color: var(--cod-gold);
+    }
+
+    .card-img-top {
+      height: 240px;
+      object-fit: cover;
+    }
+
+    /* Category Title Styling */
+    .weapon-category-title {
+      color: var(--cod-gold);
+      font-size: 2rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--cod-border);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #080a0c;
+      border-top: 1px solid var(--cod-border);
+      color: var(--cod-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WELCOME MESSAGE (TOP-CENTER FIXED) -->
+  <div id="welcomeMessage" class="welcome-banner-top alert alert-warning border border-warning text-dark fw-bold d-none fs-5"></div>
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-sticky">
+    <div class="container">
+      <!-- Logo icon -->
+      <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="Call of Duty Mobile Home">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" class="me-2" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 2Z" fill="#F3A812"/>
+          <path d="M12 6L15 11H9L12 6Z" fill="#0F1215"/>
+        </svg>
+        <div>
+          <span class="d-block text-uppercase fw-bold brand-title text-white fs-5">CALL OF DUTY</span>
+          <span class="d-block text-uppercase small text-warning fw-bold tracking-widest" style="font-size: 0.75rem;">MOBILE</span>
+        </div>
+      </a>
+
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon filter-invert" style="filter: invert(1);"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ghost">Ghost</a></li>
+          <li class="nav-item"><a class="nav-link" href="#weapons">Weapons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mode">Mode</a></li>
+        </ul>
+        <!-- Trailer Button -->
+        <div class="d-flex">
+          <button type="button" class="btn btn-cod" data-bs-toggle="modal" data-bs-target="#trailerModal">
+            Watch Trailer
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        
+        <!-- Left Text Column -->
+        <div class="col-lg-6 text-center text-lg-start">
+          <h2 class="hero-subtitle mb-1">Mobile-Garena</h2>
+          <h1 class="hero-title fw-bold mb-4">CALL OF DUTY: MOBILE</h1>
+          <p class="lead text-light mb-4" style="font-size: 1.1rem; line-height: 1.6;">Experience the action of Call of Duty: Mobile wherever you go. Jump into intense 5v5 Multiplayer battles, survive massive 100-player Battle Royale matches, and take on exciting challenges across iconic maps and game modes. With powerful weapons, unique loadouts, and nonstop combat, every match is a new fight for victory.</p>
+          <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+            <a href="#ghost" class="btn btn-cod px-4 py-2">Explore Operators</a>
+            <button type="button" class="btn btn-cod-outline px-4 py-2" data-bs-toggle="modal" data-bs-target="#trailerModal">Watch Trailer</button>
+          </div>
+        </div>
+
+        <!-- Right Graphic Column -->
+        <div class="col-lg-6 text-center">
+          <img src="https://codm.garena.com/static/images/Main-page/P1/main-kv.jpg" 
+               alt="COD Mobile Tactical Warfare" 
+               class="hero-img img-fluid rounded">
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- GHOST SECTION -->
+    <section id="ghost" style="background-color: #12161a;">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 order-lg-2">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/1/18/SimonRiley_Mobile.jpg/revision/latest?cb=20191005151053" 
+                 alt="Operator Ghost Concept" 
+                 class="img-fluid rounded border border-secondary shadow-lg">
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <h2 class="section-title">Iconic Operator: Ghost</h2>
+            <p class="lead text-warning fw-bold font-monospace">Lieutenant Simon "Ghost" Riley</p>
+            <p class="text-secondary mb-4">
+              Lieutenant Simon "Ghost" Riley was a British Special Forces operator. He was the second in command of Task Force 141 and was seen wearing dark red sunglasses and a skull-patterned balaclava along with a headset.
+              The final mission Ghost led was a strike team to search for Makarov in his safe house, but they found intel instead and downloaded them onto a device. Ghost and Roach would then be murdered by General Shepherd after Shepherd got all the intel he needed.
+            </p>
+            <ul class="list-unstyled mb-0 text-light">
+              <li class="mb-2"><strong>Unit:</strong> Task Force 141</li>
+              <li class="mb-2"><strong>Primary Specialty:</strong> Recon & Special Operations</li>
+              <li class="mb-2"><strong>Signature Weapon:</strong> Custom M4 / Locus Sniper</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEAPONS SECTION -->
+    <section id="weapons" class="bg-dark">
+      <div class="container">
+        <h2 class="section-title section-title-center text-center mx-auto" style="max-width: fit-content;">Weapons</h2>
+        <p class="text-center text-secondary mb-5 fs-5">Experience a wide selection of powerful weapons, each with unique strengths, playstyles, and customization options to help you dominate every battle in Call of Duty: Mobile.</p>
+
+        <!-- ASSAULT RIFLE -->
+        <div class="mt-4">
+          <h3 class="weapon-category-title">Assault Rifle</h3>
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://www.ginx.tv/en/wp-content/uploads/sites/3/2025/12/ak-47_cod_mobile.jpeg" alt="AK-47" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/assault/asm10/asm10-frog-prince-cod-mobile.jpg" alt="ASM10" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://prod.assets.earlygamecdn.com/images/M16-assault-rifle.jpg?mtime=1668459682" alt="M16" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDTlxWe8j3lTGbU8tBRydvt1gGXKXYW_jF2IlW6f4zaMpgKx9lYnuBhLc&s=10" alt="M4" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- SMG -->
+        <div class="mt-5">
+          <h3 class="weapon-category-title">SMG</h3>
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://pbs.twimg.com/media/GEylpcdWMAAPsna.jpg:large" alt="Chicom" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/weapons/smg/fennec/fennec-cod-mobile.jpg" alt="Fennec" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://static.wikia.nocookie.net/callofduty/images/9/91/VMP_Gunsmith_CoDM.png/revision/latest?cb=20250602191321" alt="VMP" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://static.wikia.nocookie.net/callofduty/images/2/27/LAPA_model_CoDMobile.png/revision/latest?cb=20230115151016" alt="LAPA" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- SNIPER -->
+        <div class="mt-5">
+          <h3 class="weapon-category-title">Sniper</h3>
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://prod.assets.earlygamecdn.com/images/xpr-50.jpg?mtime=1665761884" alt="XPR-50" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/sniper/svd/svd-timeless-moment-cod-mobile.jpg" alt="SVD" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://img.atwiki.jp/callofduty_mobile/attach/40/102/IMG_1972.jpeg" alt="NA-45" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/sniper/arctic50/arctic-50-graveyard-watch-cod-mobile.jpg" alt="Arctic.50" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- SHOTGUN -->
+        <div class="mt-5">
+          <h3 class="weapon-category-title">Shotgun</h3>
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/shotgun/by15/by15-rusted-cod-mobile.jpg" alt="BY15" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/shotgun/striker/stiker-irradiated-amethyst-cod-mobile.jpg" alt="Striker" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://static.wikia.nocookie.net/callofduty/images/7/74/Argus_model_CoDMobile.png/revision/latest?cb=20231120215028" alt="Argus" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://static.wikia.nocookie.net/callofduty/images/5/57/JAK-12_model_CoDMobile.png/revision/latest?cb=20220326000104" alt="JAK-12" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <!-- LMG -->
+        <div class="mt-5">
+          <h3 class="weapon-category-title">LMG</h3>
+          <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZLA-j07c43s8numcdbm-2NR-R5k67VTs1AMg7HvfWDSg3fHy10t7GX9g9&s=10" alt="RPD" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQfVqUzmzxD82u-vxJU7s3hyEgruo3b_4kGYezWGhnptclg6uR4guek0M&s=10" alt="Chopper" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://zilliongamer.com/uploads/codm/skins/lmg/hades/hades-herald-cod-mobile.jpg" alt="Hades" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <img src="https://static.wikia.nocookie.net/callofduty/images/0/0e/Dingo_model_CoDMobile.png/revision/latest?cb=20230221123531" alt="Dingo" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY / MAP SECTION -->
+    <section id="gallery" style="background-color: #12161a;">
+      <div class="container">
+        <h2 class="section-title section-title-center text-center mx-auto" style="max-width: fit-content;">Map Gallery</h2>
+        <p class="text-center text-secondary mb-5 fs-5">Experience different battles across a variety of maps, each offering unique environments, layouts, and challenges that test your skills and strategy in Call of Duty: Mobile.</p>
+        
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://www.gamesatlas.com/images/jch-optimize/ng/images_call-of-duty_mobile_Standoff-Call-of-Duty-Mobile-Map.webp" alt="Standoff" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/2/25/Winners_Circle_Crash_CODM.png/revision/latest?cb=20210822231004" alt="Crash" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUUVi6c27hlece0bReqPKfJ73baDkPQ0moHCHleO-wj8aZlxwKiRo2_58&s=10" alt="Tunisia" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWaEOFyx5T2bSySKgOyFzek7XX8bqCh5zKl5115CQQFnpkLP7ognEY6iZt&s=10" alt="Firing Range" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/1/16/Raid_MenuScreen_BOCW.png/revision/latest?cb=20201217111734" alt="Raid" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/codm/CODM-S13-Announcement-005.jpg" alt="Ski Town" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJOAtZEjHttP5BT4vF3O6XVy9BaD_xnhc8YF_gFOnDr47Tz9K4ZVgSIis&s=10" alt="Summit" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM4ZHbpObigtRHOrtXvFJQd06T-8bjmSDI3XN6M98rXU4ts38X8fgmqcOX&s=10" alt="Terminal" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/f/f9/HackneyYard_Day_LoadingScreen_MW.png/revision/latest?cb=20191121163049" alt="Hackney Yard" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtYT9qh0nJ2XKvZRRnqmTu0XNC2q-8Dld0mEkE8Qwe-xgTvvay98LMQeS6&s=10" alt="Coastal" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTARU6OT65AWUEL6lBywNc-wkG4GqiO0s33ARzJd-EOX_cYbEsYb_gspXun&s=10" alt="Vacant" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/4/41/Kurohana_Metropolis_Promo_CODM.jpg/revision/latest?cb=20230829174033" alt="Kurohana Metropolis" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://static.wikia.nocookie.net/callofduty/images/e/eb/Pier_Isolated_CODM.png/revision/latest/scale-to-width-down/1200?cb=20200923010827" alt="Pier Isolated" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHH8sCnheS_CI-Zl_P5ZSt_bqjQf1iwDL4KU7HL9eHIr91wtmTkxePi3Y&s=10" alt="Bus Station" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://blog.activision.com/content/dam/atvi/activision/atvi-touchui/blog/callofduty/body/BR_Tour_Pt_3_Killhouse.jpg" alt="Killhouse" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2023/07/CODM-S6-003-1-1024x576.jpg" alt="Military Research" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://blog.activision.com/content/dam/atvi/activision/atvi-touchui/blog/callofduty/body/BR_Tour_Pt_3_Sakura.jpg" alt="Sakura" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/06/CODM-Grand-Tour-Expansion-Black-Market-1-1.jpg" alt="Black Market Area" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJTNJhMqQUnwN4836vHSdDRJO75uauWXK0cyl2T_PjagQrqqTXWA15GBQ&s=10" alt="Circus" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <img src="https://blog.activision.com/content/dam/atvi/activision/atvi-touchui/blog/callofduty/body/BR_Tour_Pt_1_Dock.jpg" alt="Dock" class="img-fluid rounded card-custom w-100 weapon-img" style="height: 200px; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODE SECTION -->
+    <section id="mode" class="bg-dark">
+      <div class="container">
+        <h2 class="section-title section-title-center text-center mx-auto" style="max-width: fit-content;">Game Modes</h2>
+        <p class="text-center text-secondary mb-5 fs-5">Choose your game mode and dominate the battlefield.</p>
+
+        <div class="row g-5">
+          <!-- Battle Royale -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded border border-secondary h-100" style="background-color: var(--cod-card-bg);">
+              <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/codm/CODM-Blackout-TOUT.jpg" 
+                   alt="Battle Royale Mode" 
+                   class="img-fluid rounded border border-secondary mb-4">
+              <h3 class="text-warning display-6 fw-bold">Battle Royale</h3>
+              <p class="lead text-light fw-bold">Drop in, gear up, survive, and win.</p>
+              <p class="text-secondary">
+                Drop into a massive 100-player Battle Royale battlefield, choose your class, collect powerful weapons and gear, and fight across land, sea, and air. Team up with your squad, outplay your enemies, and battle to become the last squad standing in iconic arenas like Isolated and Blackout.
+              </p>
+              <button type="button" class="btn btn-cod mt-2" data-bs-toggle="modal" data-bs-target="#brTrailerModal">Watch Mode Trailer</button>
+            </div>
+          </div>
+
+          <!-- Multiplayer -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded border border-secondary h-100" style="background-color: var(--cod-card-bg);">
+              <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/mobile/home/gamemodes/GameModes_Multiplayer.webp" 
+                   alt="Multiplayer Mode" 
+                   class="img-fluid rounded border border-secondary mb-4">
+              <h3 class="text-warning display-6 fw-bold">Multiplayer</h3>
+              <p class="lead text-light fw-bold">Intense 5v5 multiplayer combat.</p>
+              <p class="text-secondary">
+                Jump into intense 5v5 Multiplayer battles, choose your favorite loadout, and fight across iconic maps and fast-paced game modes. Team up with your squad, use powerful weapons and tactical skills, outplay your enemies, and battle to lead your team to victory in modes like Search & Destroy and Frontline.
+              </p>
+              <button type="button" class="btn btn-cod mt-2" data-bs-toggle="modal" data-bs-target="#mpTrailerModal">Watch Mode Trailer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer class="py-4">
+    <div class="container text-center">
+      <h4 class="text-warning brand-title mb-1">CALL OF DUTY: MOBILE</h4>
+      <p class="small text-secondary mb-0">&copy; Copyright © Garena Online. Copyright © Tencent. All rights reserved. © 2019 Activision Publishing, Inc. ACTIVISION and CALL OF DUTY are trademarks of Activision Publishing, Inc.Trademarks belong to their respective owners. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- OFFICIAL TRAILER MODAL -->
+  <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark text-white border border-secondary shadow-lg">
+        <div class="modal-header border-bottom border-secondary">
+          <h5 class="modal-title fw-bold text-warning font-monospace" id="trailerModalLabel">Call of Duty: Mobile - Official Trailer</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 text-center">
+          <div class="py-3">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="mb-3 text-warning" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 6H3C1.9 6 1 6.9 1 8V16C1 17.1 1.9 18 3 18H21C22.1 18 23 17.1 23 16V8C23 6.9 22.1 6 21 6ZM9.5 14.5V9.5L15.5 12L9.5 14.5Z" fill="currentColor"/>
+            </svg>
+            <h4 class="text-white fw-bold mb-3">Official Launch Trailer</h4>
+            <p class="text-secondary mb-4">Watch the official Call of Duty: Mobile - Garena launch trailer directly on YouTube.</p>
+            <a href="https://youtu.be/w0suHTYym1U" target="_blank" rel="noopener noreferrer" class="btn btn-cod px-4 py-2">
+              Watch Video on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BATTLE ROYALE TRAILER MODAL -->
+  <div class="modal fade" id="brTrailerModal" tabindex="-1" aria-labelledby="brTrailerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark text-white border border-secondary shadow-lg">
+        <div class="modal-header border-bottom border-secondary">
+          <h5 class="modal-title fw-bold text-warning font-monospace" id="brTrailerModalLabel">Call of Duty: Mobile - Battle Royale Trailer</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 text-center">
+          <div class="py-3">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="mb-3 text-warning" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 6H3C1.9 6 1 6.9 1 8V16C1 17.1 1.9 18 3 18H21C22.1 18 23 17.1 23 16V8C23 6.9 22.1 6 21 6ZM9.5 14.5V9.5L15.5 12L9.5 14.5Z" fill="currentColor"/>
+            </svg>
+            <h4 class="text-white fw-bold mb-3">Battle Royale Mode Trailer</h4>
+            <p class="text-secondary mb-4">Watch the Call of Duty: Mobile - Battle Royale trailer directly on YouTube.</p>
+            <a href="https://youtu.be/otbqRVRsEAs?si=3fDL6zRtQusroEtU" target="_blank" rel="noopener noreferrer" class="btn btn-cod px-4 py-2">
+              Watch Video on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTIPLAYER TRAILER MODAL -->
+  <div class="modal fade" id="mpTrailerModal" tabindex="-1" aria-labelledby="mpTrailerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark text-white border border-secondary shadow-lg">
+        <div class="modal-header border-bottom border-secondary">
+          <h5 class="modal-title fw-bold text-warning font-monospace" id="mpTrailerModalLabel">Call of Duty: Mobile - Multiplayer Trailer</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5 text-center">
+          <div class="py-3">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="mb-3 text-warning" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 6H3C1.9 6 1 6.9 1 8V16C1 17.1 1.9 18 3 18H21C22.1 18 23 17.1 23 16V8C23 6.9 22.1 6 21 6ZM9.5 14.5V9.5L15.5 12L9.5 14.5Z" fill="currentColor"/>
+            </svg>
+            <h4 class="text-white fw-bold mb-3">Multiplayer Mode Trailer</h4>
+            <p class="text-secondary mb-4">Watch the Call of Duty: Mobile - Multiplayer trailer directly on YouTube.</p>
+            <a href="https://youtu.be/n4b8FRUDNZo?si=UJX_Gaxtn397addW" target="_blank" rel="noopener noreferrer" class="btn btn-cod px-4 py-2">
+              Watch Video on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL IMAGE VIEW MODAL -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content bg-dark text-white border border-secondary shadow-lg">
+        <div class="modal-header border-bottom border-secondary">
+          <h5 class="modal-title fw-bold text-warning font-monospace" id="imageModalTitle">Weapon Preview</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-2">
+          <img id="fullSizeImage" src="" alt="Full Preview" class="img-fluid rounded" style="max-height: 80vh; object-fit: contain;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser) {
+        const welcomeElement = document.getElementById("welcomeMessage");
+        if (welcomeElement) {
+          welcomeElement.textContent = `Welcome, ${currentUser}!`;
+          welcomeElement.classList.remove("d-none");
+
+          // Disappear wc message after 1 second
+          setTimeout(function () {
+            welcomeElement.style.opacity = "0";
+            setTimeout(function () {
+              welcomeElement.classList.add("d-none");
+            }, 100); // Waits for fade-out transition
+          }, 1000);
+        }
+      }
+    });
+
+    const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    const fullSizeImage = document.getElementById('fullSizeImage');
+    const imageModalTitle = document.getElementById('imageModalTitle');
+
+    document.querySelectorAll('.weapon-img').forEach(img => {
+      img.addEventListener('click', function () {
+        fullSizeImage.src = this.src;
+        imageModalTitle.textContent = this.alt || 'Full View';
+        imageModal.show();
+      });
+    });
+
+    // Stops video playback when trailer modal is closed
+    const trailerModal = document.getElementById('trailerModal');
+    const trailerVideo = document.getElementById('trailerVideo');
+
+    if (trailerModal && trailerVideo) {
+      trailerModal.addEventListener('hidden.bs.modal', function () {
+        const currentSrc = trailerVideo.src;
+        trailerVideo.src = '';
+        trailerVideo.src = currentSrc;
+      });
+    }
+  </script>
+</body>
+</html>
